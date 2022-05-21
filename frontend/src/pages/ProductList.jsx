@@ -56,7 +56,7 @@ const ProductList = () => {
     
     async function getSubCategory(){
       try {
-        const subCategories = await axios.get(`http://localhost:8000/api/subCategory/${subcategory_slug}`)
+        const subCategories = await axios.get(` https://skart-ecomweb-backend.herokuapp.com/api/subCategory/${subcategory_slug}`)
         setSubCategories(subCategories.data)
         // console.log(subCategories.data);
       } catch (error) {

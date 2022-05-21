@@ -15,7 +15,7 @@ ${mobile({padding: "0px", flexDirection: "column"})}
 const Categories = () => {
   const [categories, setCategories] = useState([])
   useEffect(()=>{
-    fetch("http://localhost:8000/api/categories").then((result)=>{
+    fetch(" https://skart-ecomweb-backend.herokuapp.com/api/categories").then((result)=>{
       result.json().then((response)=>{
         setCategories(response)
       })

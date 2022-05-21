@@ -168,7 +168,7 @@ const Product = () => {
     async function getProduct() {
       try {
         const product = await axios.get(
-          `http://localhost:8000/api/productDetails/${product_slug}`
+          `https://skart-ecomweb-backend.herokuapp.com/api/productDetails/${product_slug}`
         );
         setProduct(product.data);
         // console.log(product.data);
@@ -205,7 +205,7 @@ const Product = () => {
       price: product.price,
       quantity: quantity,
     };
-    axios.post(`http://localhost:8000/api/addtoCart/`, data).then((res) => {});
+    axios.post(` https://skart-ecomweb-backend.herokuapp.com/api/addtoCart/`, data).then((res) => {});
 
     navigate("/cart");
   };

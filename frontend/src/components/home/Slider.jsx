@@ -99,7 +99,7 @@ const Slider = () => {
 
     async function getAllCategory(){
       try {
-        const categories = await axios.get("http://localhost:8000/api/categories/")
+        const categories = await axios.get(" https://skart-ecomweb-backend.herokuapp.com/api/categories/")
         setCategories(categories.data)
         // console.log(categories.data);
       } catch (error) {

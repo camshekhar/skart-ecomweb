@@ -83,7 +83,7 @@ const Navbar = () => {
   useEffect(() => {
     async function getAllCategory() {
       try {
-        const cartitems = await axios.get("http://localhost:8000/api/cart/");
+        const cartitems = await axios.get(" https://skart-ecomweb-backend.herokuapp.com/api/cart/");
         setCartitems(cartitems.data);
         // console.log(cartitems.data);
       } catch (error) {

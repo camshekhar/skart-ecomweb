@@ -5,7 +5,7 @@ import Newsletter from "../components/home/Newsletter";
 import * as Icon from "react-bootstrap-icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
@@ -213,8 +213,8 @@ const MainButton = styled.button`
 const Cart = () => {
   const [cartitems, setCartitems] = useState([]);
   var totalCartPrice = 0;
-
-
+   
+ const navigate = useNavigate();
 
 // Handling Increment and Decrement of products in Cart.
   const handleDecrement = (cart_id) => {
@@ -239,7 +239,7 @@ const Cart = () => {
   useEffect(() => {
     async function getAllCategory() {
       try {
-        const cartitems = await axios.get("http://localhost:8000/api/cart/");
+        const cartitems = await axios.get(" https://skart-ecomweb-backend.herokuapp.com/api/cart/");
         setCartitems(cartitems.data);
         // console.log(cartitems.data);
       } catch (error) {
@@ -250,7 +250,7 @@ const Cart = () => {
   }, []);
 
   function updateCartQuantity(cart_id, scope ){
-   axios.put(`http://localhost:8000/api/updateCartQty/${cart_id}/${scope}/`).then(res =>{
+   axios.put(`https://skart-ecomweb-backend.herokuapp.com/api/updateCartQty/${cart_id}/${scope}/`).then(res =>{
      if (res.data.status === 200) {
        swal("Success","Quantity Changed" , "success");
      }
@@ -262,11 +262,11 @@ const deleteCartItem = (e, cart_id) =>{
   e.preventDefault();
   
   const thisClicked = e.currentTarget;
-  axios.delete(`http://localhost:8000/api/deleteCartItem/${cart_id}/`);
+  axios.delete(`https://skart-ecomweb-backend.herokuapp.com/api/deleteCartItem/${cart_id}/`);
  
    thisClicked.closest("div").remove();
-  //  navigate("/cart")
-    window.location.reload();
+   navigate("/cart")
+    // window.location.reload();
     
 
 
